@@ -15,6 +15,8 @@ NEXT_PHASE = {
     'spinning backward': 'waiting again',
     'waiting again': 'spinning forward'
     }
+IMAGE_ADA = arcade.load_texture("images/ada.png")
+IMAGE_POTATO = arcade.load_texture("images/potato.png")
 
 
 class Ada(arcade.Sprite):
@@ -47,6 +49,12 @@ class Ada(arcade.Sprite):
     def update(self):
         self.update_timer()
         self.update_angle()
+
+    def switch_image(self):
+        if self.texture == IMAGE_POTATO:
+            self.texture = IMAGE_ADA
+        else:
+            self.texture = IMAGE_POTATO
 
 
 class Cisc108Game(arcade.Window):
