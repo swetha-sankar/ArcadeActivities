@@ -12,7 +12,6 @@ GAME_SPEED = 1/60
 class YourGameClassRenameThis(arcade.Window):
     def __init__(self, width, height, title):
         """ Initialize variables """
-        w
         super().__init__(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE)
         arcade.set_background_color(arcade.color.AIR_FORCE_BLUE)
 

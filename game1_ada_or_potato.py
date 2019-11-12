@@ -4,7 +4,6 @@ WINDOW_WIDTH = 500
 WINDOW_HEIGHT = 500
 BACKGROUND_COLOR = arcade.color.ANTIQUE_WHITE
 GAME_TITLE = "Ada or Potato?"
-GAME_SPEED = 1
 
 TIMER_MAXIMUM = 6
 
@@ -13,10 +12,10 @@ IMAGE_POTATO = arcade.load_texture("images/potato.png", scale=.21)
 
 
 class Ada(arcade.Sprite):
+    timer: int
 
     def __init__(self):
         super().__init__()
-        self.phase = 'ada'
         self.timer = 0
         self.center_x = WINDOW_WIDTH/2
         self.center_y = WINDOW_HEIGHT/2
@@ -35,17 +34,14 @@ class Ada(arcade.Sprite):
     def switch_image(self):
         if self.texture == IMAGE_ADA:
             self.texture = IMAGE_POTATO
-            self.phase = 'potato'
         else:
             self.texture = IMAGE_ADA
-            self.phase = 'ada'
 
 
 class AdaGame(arcade.Window):
 
     def __init__(self):
         super().__init__(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE)
-        self.score = 0
         self.points = 0
         self.status = Ada()
 
@@ -64,7 +60,7 @@ class AdaGame(arcade.Window):
         self.status.update()
 
     def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
-        if self.status.phase == 'ada':
+        if self.status.texture == IMAGE_ADA:
             self.points += 1
         else:
             self.points -= 1
