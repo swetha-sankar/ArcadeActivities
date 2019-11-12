@@ -57,7 +57,7 @@ class AdaGame(arcade.Window):
         arcade.start_render()
         self.status.draw()
         output = f"Score: {self.points}"
-        arcade.draw_rectangle_outline(30, 50, 70.0, 70.0, arcade.color.BLACK)
+        arcade.draw_rectangle_outline(35, 55, 60.0, 45.0, arcade.color.BLACK)
         arcade.draw_text(output, 10, 50, arcade.color.BLACK, 13)
 
     def on_update(self, delta_time):

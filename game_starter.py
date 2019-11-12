@@ -4,8 +4,8 @@ import arcade
 # Define constants
 WINDOW_WIDTH = 500
 WINDOW_HEIGHT = 500
-BACKGROUND_COLOR = arcade.color.BLACK
-GAME_TITLE = "Introduction"
+BACKGROUND_COLOR = arcade.color.BLUE
+GAME_TITLE = "Hot Air Adventure"
 GAME_SPEED = 1/60
 
 
