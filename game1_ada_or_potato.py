@@ -45,28 +45,26 @@ class AdaGame(arcade.Window):
 
     def __init__(self):
         super().__init__(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE)
-        self.logo_list = None
         self.score = 0
         self.points = 0
+        self.status = Ada()
 
     def setup(self):
         arcade.set_background_color(BACKGROUND_COLOR)
-        self.logo_list = arcade.SpriteList()
-        self.logo_list.append(Ada())
 
     def on_draw(self):
         """ Called when it is time to draw the world """
         arcade.start_render()
-        self.logo_list.draw()
+        self.status.draw()
         output = f"Score: {self.points}"
         arcade.draw_rectangle_outline(30, 50, 70.0, 70.0, arcade.color.BLACK)
         arcade.draw_text(output, 10, 50, arcade.color.BLACK, 13)
 
     def on_update(self, delta_time):
-        self.logo_list.update()
+        self.status.update()
 
     def on_mouse_press(self, x: float, y: float, button: int, modifiers: int):
-        if self.logo_list[0].phase == 'ada':
+        if self.status.phase == 'ada':
             self.points += 1
         else:
             self.points -= 1
